@@ -1,0 +1,2 @@
+# NOVAMINDSTUDIO
+ai programmierung
