@@ -94,7 +94,7 @@ export const translations = {
     skills: {
       title: 'Unsere',
       titleAccent: 'Expertise',
-      subtitle: '30 Jahre Automation. Von CNC-Präzision zu KI-Determinismus.',
+      subtitle: '25 Jahre Automation. Von CNC-Präzision zu KI-Determinismus.',
       items: [
         {
           title: 'AI Engineering',
@@ -103,7 +103,7 @@ export const translations = {
         },
         {
           title: 'Automation',
-          desc: '30 Jahre Erfahrung in industrieller Automation. CNC-Präzision trifft auf KI-Intelligenz.',
+          desc: '25 Jahre Erfahrung in industrieller Automation. CNC-Präzision trifft auf KI-Intelligenz.',
           icon: 'Cog',
         },
         {
@@ -130,7 +130,7 @@ export const translations = {
       cncToAi: {
         title: 'Von CNC zu KI',
         subtitle: 'Präzision trifft Intelligenz',
-        description: '30 Jahre CNC-Maschinenbau haben uns gelehrt: Präzision, Wiederholbarkeit und Determinismus sind nicht verhandelbar. Diese Werte fließen in jedes unserer KI-Systeme ein.',
+        description: '25 Jahre CNC-Maschinenbau haben uns gelehrt: Präzision, Wiederholbarkeit und Determinismus sind nicht verhandelbar. Diese Werte fließen in jedes unserer KI-Systeme ein.',
         stats: [
           { value: '0.001', unit: 'mm', label: 'CNC-Toleranz' },
           { value: '100', unit: '%', label: 'Deterministisch' },
@@ -142,10 +142,10 @@ export const translations = {
       title: 'Das',
       titleAccent: 'Studio',
       subtitle: 'NovaMind Studios ist ein Schweizer AI-Forschungs- und Entwicklungsstudio, gegründet von Kevin Kachramanow.',
-      description1: '30 Jahre Erfahrung im CNC-Maschinenbau, angewandt auf KI-Entwicklung: Präzision, Determinismus, Offline-Integrität.',
+      description1: '25 Jahre Erfahrung im CNC-Maschinenbau, angewandt auf KI-Entwicklung: Präzision, Determinismus, Offline-Integrität.',
       description2: 'Wir entwickeln KI-Systeme die ohne Cloud funktionieren — für Unternehmen die Datensouveränität ernst nehmen. Swiss Innovation Challenge 2026.',
       founder: 'Founder-Led',
-      experience: '30+ Jahre Engineering',
+      experience: '25+ Jahre Engineering',
       innovation: 'Swiss Innovation Challenge 2026',
       services: {
         ai: 'AI Engineering',
@@ -163,7 +163,7 @@ export const translations = {
     },
     contact: {
       email: 'KI27@IK.ME',
-      phone: '+41 79 544 00 17',
+  
       address: 'Gösgen 5013',
       city: 'Kanton Solothurn, Schweiz',
     },
@@ -261,7 +261,7 @@ export const translations = {
     skills: {
       title: 'Our',
       titleAccent: 'Expertise',
-      subtitle: '30 years of automation. From CNC precision to AI determinism.',
+      subtitle: '25 years of automation. From CNC precision to AI determinism.',
       items: [
         {
           title: 'AI Engineering',
@@ -297,7 +297,7 @@ export const translations = {
       cncToAi: {
         title: 'From CNC to AI',
         subtitle: 'Precision meets Intelligence',
-        description: '30 years of CNC machining taught us: precision, repeatability, and determinism are non-negotiable. These values flow into every one of our AI systems.',
+        description: '25 years of CNC machining taught us: precision, repeatability, and determinism are non-negotiable. These values flow into every one of our AI systems.',
         stats: [
           { value: '0.001', unit: 'mm', label: 'CNC Tolerance' },
           { value: '100', unit: '%', label: 'Deterministic' },
@@ -309,10 +309,10 @@ export const translations = {
       title: 'The',
       titleAccent: 'Studio',
       subtitle: 'NovaMind Studios is a Swiss AI research and development studio, founded by Kevin Kachramanow.',
-      description1: '30 years of experience in CNC machining, applied to AI development: precision, determinism, offline integrity.',
+      description1: '25 years of experience in CNC machining, applied to AI development: precision, determinism, offline integrity.',
       description2: 'We develop AI systems that work without the cloud — for companies that take data sovereignty seriously. Swiss Innovation Challenge 2026.',
       founder: 'Founder-Led',
-      experience: '30+ Years Engineering',
+      experience: '25+ Years Engineering',
       innovation: 'Swiss Innovation Challenge 2026',
       services: {
         ai: 'AI Engineering',
@@ -330,7 +330,6 @@ export const translations = {
     },
     contact: {
       email: 'KI27@IK.ME',
-      phone: '+41 79 544 00 17',
       address: 'Gösgen 5013',
       city: 'Canton Solothurn, Switzerland',
     },
@@ -464,7 +463,7 @@ export const translations = {
       cncToAi: {
         title: 'De CNC a IA',
         subtitle: 'Precisión encuentra Inteligencia',
-        description: '30 años de mecanizado CNC nos enseñaron: la precisión, repetibilidad y determinismo no son negociables. Estos valores fluyen en cada uno de nuestros sistemas de IA.',
+        description: '25 años de mecanizado CNC nos enseñaron: la precisión, repetibilidad y determinismo no son negociables. Estos valores fluyen en cada uno de nuestros sistemas de IA.',
         stats: [
           { value: '0.001', unit: 'mm', label: 'Tolerancia CNC' },
           { value: '100', unit: '%', label: 'Determinista' },
@@ -476,10 +475,10 @@ export const translations = {
       title: 'El',
       titleAccent: 'Estudio',
       subtitle: 'NovaMind Studios es un estudio suizo de investigación y desarrollo de IA, fundado por Kevin Kachramanow.',
-      description1: '30 años de experiencia en mecanizado CNC, aplicados al desarrollo de IA: precisión, determinismo, integridad offline.',
+      description1: '25 años de experiencia en mecanizado CNC, aplicados al desarrollo de IA: precisión, determinismo, integridad offline.',
       description2: 'Desarrollamos sistemas de IA que funcionan sin la nube — para empresas que toman en serio la soberanía de datos. Swiss Innovation Challenge 2026.',
       founder: 'Liderado por Fundador',
-      experience: '30+ Años de Ingeniería',
+      experience: '25+ Años de Ingeniería',
       innovation: 'Swiss Innovation Challenge 2026',
       services: {
         ai: 'AI Engineering',
@@ -497,7 +496,7 @@ export const translations = {
     },
     contact: {
       email: 'KI27@IK.ME',
-      phone: '+41 79 544 00 17',
+
       address: 'Gösgen 5013',
       city: 'Cantón de Solothurn, Suiza',
     },
