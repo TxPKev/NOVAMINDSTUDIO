@@ -163,7 +163,6 @@ export const translations = {
     },
     contact: {
       email: 'KI27@IK.ME',
-      phone: '+41 79 544 00 17',
       address: 'Gösgen 5013',
       city: 'Kanton Solothurn, Schweiz',
     },
@@ -330,7 +329,6 @@ export const translations = {
     },
     contact: {
       email: 'KI27@IK.ME',
-      phone: '+41 79 544 00 17',
       address: 'Gösgen 5013',
       city: 'Canton Solothurn, Switzerland',
     },
@@ -497,7 +495,6 @@ export const translations = {
     },
     contact: {
       email: 'KI27@IK.ME',
-      phone: '+41 79 544 00 17',
       address: 'Gösgen 5013',
       city: 'Canton de Soleure, Suisse',
     },
