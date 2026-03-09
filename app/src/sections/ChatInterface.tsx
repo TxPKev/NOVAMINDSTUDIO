@@ -24,12 +24,28 @@ export function ChatInterface() {
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  
+  // NEU: Ref um zu tracken ob Komponente gerade erst geladen wird
+  // Problem war: Beim ersten Render (Seitenstart) scrollte die App sofort zum Chat-Bereich
+  // Lösung: Wir merken uns ob der erste Render vorbei ist, erst ab dem zweiten Scrollen wir
+  const didMountRef = useRef(false);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    // NEU: block: 'nearest' verhindert dass die GANZE Seite scrollt, 
+    // sondern nur der Chat-Container intern
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   };
 
   useEffect(() => {
+    // NEU: Beim ersten Laden (didMountRef.current ist false) scrollen wir NICHT
+    // Dadurch bleibt die Seite oben beim Hero stehen
+    if (!didMountRef.current) {
+      didMountRef.current = true;
+      return;
+    }
+    
+    // Ab hier: Erst wenn User eine Nachricht schreibt (messages Array ändert sich),
+    // dann scrollen wir innerhalb des Chat-Fensters nach unten
     scrollToBottom();
   }, [messages]);
 
@@ -186,6 +202,7 @@ export function ChatInterface() {
                   </div>
                 )}
 
+                {/* Hier springt der Scroll-To-Bottom hin */}
                 <div ref={messagesEndRef} />
               </div>
 
