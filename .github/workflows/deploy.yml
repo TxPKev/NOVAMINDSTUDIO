@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Wir laden alles aus dem Hauptordner hoch
-          path: '.'
+          path: './dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
