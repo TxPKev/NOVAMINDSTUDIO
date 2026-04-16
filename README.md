@@ -47,28 +47,8 @@ A complete AI assistant architecture that runs 100% locally.
 
 Patent-pending security architecture for connected hardware devices.
 
-**Core capabilities:**
-- Port integrity monitoring — reaction time **≤100ms**
-- Presence and state evaluation from local device signals
-- Energy state control and intelligent power management
-- Local encrypted event fingerprints for audit trails
-- Fully offline — no network required at any point
-
-**Target domains:**
-- Consumer electronics & smartphones
-- Automotive systems
-- Industrial & IoT devices
-- Enterprise hardware security
 
 Designed for licensing to global manufacturers of connected hardware devices.
-
----
-
-### AriTrainee — Automated Trading AI
-
-Multi-instance trading system with MetaTrader 5 integration.  
-Assets: Bitcoin, Gold, US Tech equities — each with a dedicated Expert Advisor.  
-Fully automated. Offline signal generation.
 
 ---
 
