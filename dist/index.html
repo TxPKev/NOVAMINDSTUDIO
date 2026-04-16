@@ -1,16 +1,527 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>NovaMind Studios</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NovaMind Studios — Offline-KI und Hardware-Integrität</title>
+<meta name="description" content="Swiss Deep-Tech Studio. Offline-KI und hardware-nahe Integritätsarchitektur. Niedergösgen, Schweiz.">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="NovaMind Studios">
+<meta property="og:description" content="Swiss Deep-Tech Studio. Offline-KI und hardware-nahe Integritätsarchitektur.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://txpkev.github.io/NOVAMINDSTUDIO">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #000000;
+  --text: #E8E8EC;
+  --text-dim: #8A8A8F;
+  --border: #1F1F23;
+  --max: 1280px;
+  --pad-x: clamp(24px, 5vw, 80px);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--text); }
+
+.mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-left: var(--pad-x);
+  padding-right: var(--pad-x);
+}
+
+/* ---------- I18N ---------- */
+.lang { display: none; }
+body[data-lang="de"] .lang-de,
+body[data-lang="en"] .lang-en,
+body[data-lang="fr"] .lang-fr { display: revert; }
+
+/* ---------- HEADER ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  gap: 32px;
+}
+header .brand {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--text);
+  white-space: nowrap;
+}
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+.lang-switch button {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: inherit;
+  padding: 4px 2px;
+  transition: color 0.18s ease;
+}
+.lang-switch button:hover { color: var(--text); }
+.lang-switch button.active {
+  color: var(--text);
+  border-bottom: 1px solid var(--text);
+}
+.lang-switch .sep { color: var(--border); user-select: none; }
+header .contact-link {
+  font-size: 14px;
+  color: var(--text-dim);
+  transition: color 0.2s ease;
+}
+header .contact-link:hover { color: var(--text); }
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('./assets/bg-circuit.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-top: 96px;
+  padding-bottom: 96px;
+  animation: fadeIn 1.2s ease forwards;
+}
+.hero-label {
+  margin-bottom: 32px;
+}
+.hero h1 {
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  max-width: 900px;
+}
+.hero-subhead {
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 300;
+  color: var(--text-dim);
+  margin-bottom: 40px;
+  letter-spacing: -0.01em;
+}
+.hero-lead {
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 640px;
+  margin-bottom: 48px;
+  color: var(--text);
+}
+.cta {
+  display: inline-block;
+  padding: 14px 28px;
+  border: 1px solid var(--text);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.cta:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+.hero-status {
+  margin-top: 72px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+}
+.status-item::before {
+  content: '●';
+  margin-right: 10px;
+  color: var(--text);
+}
+
+/* ---------- SECTION ---------- */
+section.block {
+  padding: 120px 0;
+  border-bottom: 1px solid var(--border);
+}
+.section-label {
+  margin-bottom: 48px;
+}
+.section-title {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 64px;
+  max-width: 800px;
+}
+
+/* ---------- PRODUKTE ---------- */
+.product {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  gap: 48px;
+  align-items: start;
+}
+.product:last-child { border-bottom: 1px solid var(--border); }
+.product-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  padding-top: 8px;
+}
+.product-body h3 {
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+.product-body p {
+  color: var(--text-dim);
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 640px;
+}
+.product-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  text-align: right;
+  padding-top: 10px;
+}
+
+/* ---------- STUDIO ---------- */
+.studio-text {
+  max-width: 720px;
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--text);
+}
+.studio-text p + p { margin-top: 24px; }
+
+/* ---------- KONTAKT ---------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  max-width: 800px;
+}
+.contact-lead {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--text);
+}
+.contact-info {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 2;
+  color: var(--text-dim);
+}
+.contact-info a { color: var(--text); }
+.contact-info a:hover { color: var(--text-dim); }
+
+/* ---------- FOOTER ---------- */
+footer {
+  padding: 40px 0;
+}
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+}
+
+/* ---------- ANIMATION ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 860px) {
+  .product {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .product-status {
+    text-align: left;
+    padding-top: 0;
+  }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-status { gap: 20px; flex-direction: column; }
+  section.block { padding: 80px 0; }
+  header .container { gap: 16px; }
+  header nav { gap: 16px; }
+}
+</style>
 </head>
 
-<body style="background:black; color:white; font-family:Arial; display:flex; align-items:center; justify-content:center; height:100vh; text-align:center;">
+<body data-lang="de">
 
-<div>
-<h1>NovaMind Studios</h1>
-<p>System update in progress.</p>
-</div>
+<header>
+  <div class="container">
+    <div class="brand">NOVAMIND STUDIOS</div>
+    <nav>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="de" aria-label="Deutsch">DE</button>
+        <span class="sep">|</span>
+        <button type="button" data-lang-btn="en" aria-label="English">EN</button>
+        <span class="sep">|</span>
+        <button type="button" data-lang-btn="fr" aria-label="Français">FR</button>
+      </div>
+      <a class="contact-link" href="#kontakt">
+        <span class="lang lang-de">Kontakt</span><span class="lang lang-en">Contact</span><span class="lang lang-fr">Contact</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-inner">
+
+    <div class="mono hero-label">
+      <span class="lang lang-de">NIEDERGÖSGEN · KANTON SOLOTHURN · SCHWEIZ · 2026</span><span class="lang lang-en">NIEDERGÖSGEN · CANTON SOLOTHURN · SWITZERLAND · 2026</span><span class="lang lang-fr">NIEDERGÖSGEN · CANTON DE SOLEURE · SUISSE · 2026</span>
+    </div>
+
+    <h1>
+      <span class="lang lang-de">KI und Sicherheit, die lokal läuft.</span><span class="lang lang-en">AI and security that runs locally.</span><span class="lang lang-fr">L'IA et la sécurité, en local.</span>
+    </h1>
+
+    <div class="hero-subhead">
+      <span class="lang lang-de">Ohne Cloud. Ohne Kompromiss.</span><span class="lang lang-en">No cloud. No compromise.</span><span class="lang lang-fr">Sans cloud. Sans compromis.</span>
+    </div>
+
+    <p class="hero-lead lang lang-de">NovaMind Studios entwickelt Offline-KI und hardware-nahe Integritätsarchitektur. Gebaut nach industriellen Präzisionsstandards. Für Umgebungen, in denen Datenhoheit, Verlässlichkeit und Auditierbarkeit nicht verhandelbar sind.</p>
+    <p class="hero-lead lang lang-en">NovaMind Studios builds offline AI and hardware-level integrity architecture. Engineered to industrial precision standards. For environments where data sovereignty, reliability, and auditability are non-negotiable.</p>
+    <p class="hero-lead lang lang-fr">NovaMind Studios conçoit de l'IA offline et une architecture d'intégrité au niveau matériel. Construite selon des standards de précision industrielle. Pour des environnements où la souveraineté des données, la fiabilité et l'auditabilité ne sont pas négociables.</p>
+
+    <a class="cta" href="mailto:ki27@ik.me">
+      <span class="lang lang-de">Gespräch anfragen</span><span class="lang lang-en">Request a conversation</span><span class="lang lang-fr">Demander un entretien</span>
+    </a>
+
+    <div class="hero-status">
+      <span class="status-item">
+        <span class="lang lang-de">Finanzierungsrunde offen (2026)</span><span class="lang lang-en">Funding round open (2026)</span><span class="lang lang-fr">Tour de financement ouvert (2026)</span>
+      </span>
+      <span class="status-item">
+        <span class="lang lang-de">Guardian — Patent pending (CH)</span><span class="lang lang-en">Guardian — Patent pending (CH)</span><span class="lang lang-fr">Guardian — Brevet en instance (CH)</span>
+      </span>
+    </div>
+
+  </div>
+</section>
+
+<section class="block" id="produkte">
+  <div class="container">
+    <div class="mono section-label">
+      <span class="lang lang-de">PRODUKTE</span><span class="lang lang-en">PRODUCTS</span><span class="lang lang-fr">PRODUITS</span>
+    </div>
+    <h2 class="section-title">
+      <span class="lang lang-de">Zwei Systeme. Ein Prinzip.</span><span class="lang lang-en">Two systems. One principle.</span><span class="lang lang-fr">Deux systèmes. Un principe.</span>
+    </h2>
+
+    <div class="product">
+      <div class="product-id">PRODUKT 01</div>
+      <div class="product-body">
+        <h3>Guardian</h3>
+        <p class="lang lang-de">Hardware-Integritäts- und Authentifizierungs-Framework. Ausgelegt für die Lizenzierung an Hersteller vernetzter Geräte.</p>
+        <p class="lang lang-en">Hardware integrity and authentication framework. Designed for licensing to manufacturers of connected devices.</p>
+        <p class="lang lang-fr">Cadre d'intégrité et d'authentification matérielle. Conçu pour la licence aux fabricants d'appareils connectés.</p>
+      </div>
+      <div class="product-status">
+        <span class="lang lang-de">Patent pending (CH)</span><span class="lang lang-en">Patent pending (CH)</span><span class="lang lang-fr">Brevet en instance (CH)</span>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-id">PRODUKT 02</div>
+      <div class="product-body">
+        <h3>AriNet</h3>
+        <p class="lang lang-de">Offline-KI-Laufzeitumgebung mit lokaler Sprachverarbeitung, regelbasierter Kontrolllogik und Echtzeit-Telefonie. Kompetenznachweis für die Guardian-Architektur.</p>
+        <p class="lang lang-en">Offline AI runtime with local speech processing, rule-based control logic, and real-time telephony. Proof of capability for the Guardian architecture.</p>
+        <p class="lang lang-fr">Environnement d'exécution d'IA offline avec traitement vocal local, logique de contrôle basée sur des règles, et téléphonie en temps réel. Preuve de compétence pour l'architecture Guardian.</p>
+      </div>
+      <div class="product-status">
+        <span class="lang lang-de">In Entwicklung</span><span class="lang lang-en">In development</span><span class="lang lang-fr">En développement</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="studio">
+  <div class="container">
+    <div class="mono section-label">STUDIO</div>
+    <div class="studio-text">
+      <p class="lang lang-de">NovaMind Studios wurde von Kevin Kachramanow gegründet. 25 Jahre Erfahrung in CNC-Präzisionstechnik, übertragen auf Software-Architektur. Der Anspruch: Systeme bauen, die messbar, auditierbar und vollständig lokal sind.</p>
+      <p class="lang lang-en">NovaMind Studios was founded by Kevin Kachramanow. 25 years of CNC precision engineering, applied to software architecture. The ambition: to build systems that are measurable, auditable, and fully local.</p>
+      <p class="lang lang-fr">NovaMind Studios a été fondé par Kevin Kachramanow. 25 ans d'expérience en ingénierie CNC de précision, appliqués à l'architecture logicielle. L'ambition : construire des systèmes mesurables, auditables, entièrement locaux.</p>
+
+      <p>Swiss Innovation Challenge 2026.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="kontakt">
+  <div class="container">
+    <div class="mono section-label">
+      <span class="lang lang-de">KONTAKT</span><span class="lang lang-en">CONTACT</span><span class="lang lang-fr">CONTACT</span>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-lead">
+        <span class="lang lang-de">Für Partnerschaften, Lizenzierung oder Investment:</span><span class="lang lang-en">For partnerships, licensing, or investment:</span><span class="lang lang-fr">Pour des partenariats, des licences ou des investissements :</span>
+      </div>
+      <div class="contact-info">
+        <span class="lang lang-de">E-Mail: <a href="mailto:ki27@ik.me">ki27@ik.me</a><br>Ort: Niedergösgen, Kanton Solothurn, Schweiz</span>
+        <span class="lang lang-en">Email: <a href="mailto:ki27@ik.me">ki27@ik.me</a><br>Location: Niedergösgen, Canton Solothurn, Switzerland</span>
+        <span class="lang lang-fr">E-mail : <a href="mailto:ki27@ik.me">ki27@ik.me</a><br>Lieu : Niedergösgen, Canton de Soleure, Suisse</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div>© 2026 NovaMind Studios</div>
+    <div><a href="mailto:ki27@ik.me">ki27@ik.me</a></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var titles = {
+    de: 'NovaMind Studios — Offline-KI und Hardware-Integrität',
+    en: 'NovaMind Studios — Offline AI and Hardware Integrity',
+    fr: 'NovaMind Studios — IA offline et intégrité matérielle'
+  };
+  var descriptions = {
+    de: 'Swiss Deep-Tech Studio. Offline-KI und hardware-nahe Integritätsarchitektur. Niedergösgen, Schweiz.',
+    en: 'Swiss deep-tech studio. Offline AI and hardware-level integrity architecture. Niedergösgen, Switzerland.',
+    fr: "Studio suisse deep-tech. IA offline et architecture d'intégrité au niveau matériel. Niedergösgen, Suisse."
+  };
+  var SUPPORTED = ['de', 'en', 'fr'];
+
+  function setLang(l) {
+    if (SUPPORTED.indexOf(l) === -1) l = 'de';
+    document.documentElement.lang = l;
+    document.body.setAttribute('data-lang', l);
+    document.title = titles[l];
+    var meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', descriptions[l]);
+    var buttons = document.querySelectorAll('[data-lang-btn]');
+    for (var i = 0; i < buttons.length; i++) {
+      if (buttons[i].getAttribute('data-lang-btn') === l) {
+        buttons[i].classList.add('active');
+      } else {
+        buttons[i].classList.remove('active');
+      }
+    }
+    try { localStorage.setItem('novamind-lang', l); } catch (e) {}
+  }
+
+  function detect() {
+    try {
+      var saved = localStorage.getItem('novamind-lang');
+      if (saved && SUPPORTED.indexOf(saved) !== -1) return saved;
+    } catch (e) {}
+    var browser = (navigator.language || 'de').slice(0, 2).toLowerCase();
+    return SUPPORTED.indexOf(browser) !== -1 ? browser : 'de';
+  }
+
+  setLang(detect());
+
+  var buttons = document.querySelectorAll('[data-lang-btn]');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', (function (btn) {
+      return function () { setLang(btn.getAttribute('data-lang-btn')); };
+    })(buttons[i]));
+  }
+})();
+</script>
 
 </body>
 </html>
