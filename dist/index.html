@@ -269,6 +269,34 @@ section.block {
   padding-top: 10px;
 }
 
+/* ---------- PRINZIPIEN ---------- */
+.principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+.principle {
+  padding: 48px 40px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.principle-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+.principle-text {
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
 /* ---------- STUDIO ---------- */
 .studio-text {
   max-width: 720px;
@@ -330,6 +358,7 @@ footer .container {
     text-align: left;
     padding-top: 0;
   }
+  .principles { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
   .hero-status { gap: 20px; flex-direction: column; }
   section.block { padding: 80px 0; }
@@ -428,6 +457,38 @@ footer .container {
       </div>
       <div class="product-status">
         <span class="lang lang-de">In Entwicklung</span><span class="lang lang-en">In development</span><span class="lang lang-fr">En développement</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="prinzipien">
+  <div class="container">
+    <div class="mono section-label">
+      <span class="lang lang-de">PRINZIPIEN</span><span class="lang lang-en">PRINCIPLES</span><span class="lang lang-fr">PRINCIPES</span>
+    </div>
+    <h2 class="section-title">
+      <span class="lang lang-de">Wonach wir bauen.</span><span class="lang lang-en">What we build by.</span><span class="lang lang-fr">Nos principes directeurs.</span>
+    </h2>
+
+    <div class="principles">
+      <div class="principle">
+        <div class="principle-num">01</div>
+        <div class="principle-text">
+          <span class="lang lang-de">Lokale Ausführung vor Cloud-Abhängigkeit.</span><span class="lang lang-en">Local execution over cloud dependency.</span><span class="lang lang-fr">Exécution locale plutôt que dépendance au cloud.</span>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">02</div>
+        <div class="principle-text">
+          <span class="lang lang-de">Auditierbarkeit vor Geschwindigkeit.</span><span class="lang lang-en">Auditability over speed.</span><span class="lang lang-fr">Auditabilité plutôt que vitesse.</span>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">03</div>
+        <div class="principle-text">
+          <span class="lang lang-de">Präzision vor Flexibilität.</span><span class="lang lang-en">Precision over flexibility.</span><span class="lang lang-fr">Précision plutôt que flexibilité.</span>
+        </div>
       </div>
     </div>
   </div>
